@@ -1,0 +1,29 @@
+.authMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.link {
+  font-size: 18px;
+  padding: 8px 16px;
+  color: black;
+  font-weight: 500;
+
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+
+  transition: background-size 0.3s;
+}
+
+.link:hover {
+  color: black;
+  background-size: 100% 2px;
+}
+
+.link.active {
+  color: red;
+}

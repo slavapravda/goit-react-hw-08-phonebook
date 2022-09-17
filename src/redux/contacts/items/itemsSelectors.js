@@ -1,12 +1,12 @@
-export const getLoading = ({contacts}) => contacts.items.loading;
+export const getLoading = state => state.items.loading;
 
-export const getError = ({contacts}) => contacts.items.error;
+export const getError = state => state.items.error;
 
-export const getFilteredContacts = ({ contacts }) => {
+export const getFilteredContacts = state => {
   const {
     items: { items },
     filter,
-  } = contacts;
+  } = state;
 
   if (!filter) {
     return items;

@@ -12,10 +12,10 @@ import s from './form.module.css';
 const Form = () => {
   const [state, setState] = useState({
     name: '',
-    phone: '',
+    number: '',
   });
 
-  const { name, phone } = state;
+  const { name, number } = state;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const Form = () => {
 
     setState({
       name: '',
-      phone: '',
+      number: '',
     });
   };
 
@@ -62,9 +62,9 @@ const Form = () => {
           <label className={s.form__label}>Number</label>
           <input
             placeholder="+380...."
-            value={phone}
+            value={number}
             type="tel"
-            name="phone"
+            name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required

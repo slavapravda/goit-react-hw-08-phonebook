@@ -1,10 +1,12 @@
 import { combineReducers } from '@reduxjs/toolkit';
+import auth from './auth/authSlice'
 import items from './items/itemsSlice';
 import filter from './filter/filterSlice';
 
-const contactsReducer = combineReducers({
+const rootReducer = combineReducers({
   items,
   filter,
+  auth,
 });
 
-export default contactsReducer;
+export default rootReducer;
