@@ -3,10 +3,12 @@ import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-import { isLogin } from 'redux/contacts/auth/authSelectors';
+import userAuth from 'shared/hooks/useAuth';
+
+
 import { signup } from 'redux/contacts/auth/authOperations';
 
 const RegisterForm = () => {
@@ -17,7 +19,7 @@ const RegisterForm = () => {
   });
 
   const dispatch = useDispatch();
-  const isUserLogin = useSelector(isLogin);
+  const isUserLogin = userAuth();
 
   if (isUserLogin) {
     return <Navigate to="/contacts" />;

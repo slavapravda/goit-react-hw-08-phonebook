@@ -1,7 +1,7 @@
 const HomePage = () => {
   return (
     <div>
-      <h1>Hello!</h1>
+      <h2>Welcome to Phonebook! Please login or register.</h2>
     </div>
   );
 };

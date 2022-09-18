@@ -1,31 +1,29 @@
-import s from './Navbar.module.css';
+import NavbarMenu from './NavbarMenu/NavbarMenu';
+import NavbarAuth from '../Navbar/NavbarAuth/NavbarAuth';
+
 import { NavLink } from 'react-router-dom';
 
-import NavbarAuth from '../Navbar/NavbarAuth/NavbarAuth';
+import useAuth from 'shared/hooks/useAuth';
+import UserMenu from 'components/UserMenu/UserMenu';
+
+import s from './Navbar.module.css';
 
 const getClassName = ({ isActive }) => {
   return isActive ? `${s.link} ${s.active}` : s.link;
 };
 
 const Navbar = () => {
+  const isUserLogin = useAuth();
   return (
-    <nav className={s.navbar}>
-      <ul className={s.list}>
-        <li className={s.item}>
-          <NavLink className={getClassName} to="/">
-            &#9742;
-          </NavLink>
-        </li>
-        <li className={s.item}>
-          <NavLink className={getClassName} to="contacts">
-            Contacts &#128466;
-          </NavLink>
-        </li>
-        <li className={s.item}>
-          <NavbarAuth />
-        </li>
-      </ul>
-    </nav>
+    <div>
+      <nav className={s.navbar}>
+        <NavLink className={getClassName} to="/">
+          &#9742;
+        </NavLink>
+        {isUserLogin && <NavbarMenu />}
+       {isUserLogin ?<UserMenu/> : <NavbarAuth />}
+      </nav>
+    </div>
   );
 };
 

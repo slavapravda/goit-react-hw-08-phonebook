@@ -4,10 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useState } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import useAuth from 'shared/hooks/useAuth';
 
-import { isLogin } from 'redux/contacts/auth/authSelectors';
 import { login } from 'redux/contacts/auth/authOperations';
 
 const LoginForm = () => {
@@ -15,7 +15,7 @@ const LoginForm = () => {
     email: '',
     password: '',
   });
-  const isUserLogin = useSelector(isLogin);
+  const isUserLogin = useAuth();
 
   const dispatch = useDispatch();
 

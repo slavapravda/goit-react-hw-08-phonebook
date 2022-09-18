@@ -7,7 +7,6 @@ export const signup = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await api.getRegister(data);
-      console.log(response)
       return response;
     } catch (error) {
       return rejectWithValue(error);
@@ -15,16 +14,47 @@ export const signup = createAsyncThunk(
   }
 );
 
-
 export const login = createAsyncThunk(
   'auth/login',
   async (data, { rejectWithValue }) => {
     try {
       const response = await api.getLogin(data);
-      console.log(response)
       return response;
     } catch (error) {
       return rejectWithValue(error);
     }
+  }
+);
+
+export const logout = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await api.getLogout();
+      return response;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const current = createAsyncThunk(
+  'auth/current',
+  async (_, { rejectWithValue, getState }) => {
+    const { auth } = getState();
+    try {
+      const response = await api.geCurrent(auth.token);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  },
+  {
+    condition: (_, { getState }) => {
+      const { auth } = getState();
+      if (!auth.token) {
+        return false;
+      }
+    },
   }
 );
