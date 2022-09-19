@@ -9,7 +9,7 @@ export const signup = createAsyncThunk(
       const response = await api.getRegister(data);
       return response;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );

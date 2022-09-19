@@ -7,6 +7,7 @@ const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
 const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
+// const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 
 const UserRoutes = () => {
@@ -21,7 +22,8 @@ const UserRoutes = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
         </Route>
-
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
+        <Route path="*" element={<LoginPage />} />
       </Routes>
     </Suspense>
   );

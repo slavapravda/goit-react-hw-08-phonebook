@@ -10,11 +10,13 @@ import useAuth from 'shared/hooks/useAuth';
 
 import { login } from 'redux/contacts/auth/authOperations';
 
+
 const LoginForm = () => {
   const [state, setState] = useState({
     email: '',
     password: '',
   });
+
   const isUserLogin = useAuth();
 
   const dispatch = useDispatch();
@@ -46,33 +48,35 @@ const LoginForm = () => {
     });
   };
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control
-          type="email"
-          value={email}
-          name="email"
-          placeholder="Enter email"
-          onChange={handleChange}
-        />
-      </Form.Group>
+    <>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            type="email"
+            value={email}
+            name="email"
+            placeholder="Enter email"
+            onChange={handleChange}
+          />
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          value={password}
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
-      </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            value={password}
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
+        </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Login
-      </Button>
-    </Form>
+        <Button variant="primary" type="submit">
+          Login
+        </Button>
+      </Form>
+    </>
   );
 };
 
